@@ -1,0 +1,75 @@
+<!-- Input para ingresar el filtro -->
+<input type="text" [(ngModel)]="filterText" placeholder="Buscar..." />
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Dirección</th>
+      <th>País</th>
+      <th>Departamento</th>
+      <th>Ciudad</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let registro of getRegistrosFiltrados(); let i = index">
+      <!-- Nombre -->
+      <td *ngIf="editIndex !== i">{{ registro.nombre }}</td>
+      <td *ngIf="editIndex === i">
+        <input [(ngModel)]="registroEditado.nombre" />
+      </td>
+
+      <!-- Apellido -->
+      <td *ngIf="editIndex !== i">{{ registro.apellido }}</td>
+      <td *ngIf="editIndex === i">
+        <input [(ngModel)]="registroEditado.apellido" />
+      </td>
+
+      <!-- Email -->
+      <td *ngIf="editIndex !== i">{{ registro.email }}</td>
+      <td *ngIf="editIndex === i">
+        <input [(ngModel)]="registroEditado.email" />
+      </td>
+
+      <!-- Dirección -->
+      <td *ngIf="editIndex !== i">{{ registro.direccion }}</td>
+      <td *ngIf="editIndex === i">
+        <input [(ngModel)]="registroEditado.direccion" />
+      </td>
+
+      <!-- País -->
+      <td *ngIf="editIndex !== i">{{ registro.pais }}</td>
+      <td *ngIf="editIndex === i">
+        <input [(ngModel)]="registroEditado.pais" />
+      </td>
+
+      <!-- Departamento -->
+      <td *ngIf="editIndex !== i">{{ registro.departamento }}</td>
+      <td *ngIf="editIndex === i">
+        <input [(ngModel)]="registroEditado.departamento" />
+      </td>
+
+      <!-- Ciudad -->
+      <td *ngIf="editIndex !== i">{{ registro.ciudad }}</td>
+      <td *ngIf="editIndex === i">
+        <input [(ngModel)]="registroEditado.ciudad" />
+      </td>
+
+      <!-- Acciones -->
+      <td>
+        <button *ngIf="editIndex !== i" (click)="editarRegistro(i)">
+          Editar
+        </button>
+        <button *ngIf="editIndex === i" (click)="guardarEdicion()">
+          Guardar
+        </button>
+        <button *ngIf="editIndex === i" (click)="cancelarEdicion()">
+          Cancelar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
