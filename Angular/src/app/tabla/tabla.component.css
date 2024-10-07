@@ -1,0 +1,151 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #00c389;
+  color: #ffffff;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+  transition: background-color 0.3s ease;
+}
+
+td {
+  background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+  background-color: #f2f2f2;
+}
+
+tr:hover td {
+  background-color: #e1e1e1;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+caption {
+  caption-side: bottom;
+  font-size: 0.9em;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  th {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    margin: 0 0 15px 0;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+  }
+
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    border-radius: 8px;
+  }
+
+  td::before {
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  td:nth-of-type(1)::before {
+    content: "Nombre";
+  }
+  td:nth-of-type(2)::before {
+    content: "Apellido";
+  }
+  td:nth-of-type(3)::before {
+    content: "Email";
+  }
+  td:nth-of-type(4)::before {
+    content: "Dirección";
+  }
+  td:nth-of-type(5)::before {
+    content: "País";
+  }
+  td:nth-of-type(6)::before {
+    content: "Departamento";
+  }
+  td:nth-of-type(7)::before {
+    content: "Ciudad";
+  }
+}
+
+.search-container {
+    max-width: 200px !important;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+    transition: background-color 0.3s;
+}
+
+li:hover {
+    background-color: #f6f6f6;
+}
+
+li:last-child {
+    border-bottom: none;
+}
