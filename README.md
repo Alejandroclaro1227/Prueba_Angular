@@ -9,5 +9,5 @@ registrar
 5. Al dar clic al botón enviar agregar el registro a la tabla que muestra los datos del
 punto (6)
 6. Listar los datos del servicio entregado en una tabla.
-Servicio https://cincoveinticinco.com/users.json
+Servicio 
 7. La tabla debe tener la opciones de filtrar y ordenar y editar un registro
