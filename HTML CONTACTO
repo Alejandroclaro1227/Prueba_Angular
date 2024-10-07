@@ -1,0 +1,158 @@
+<div class="imagen">
+  <h1>FORMULARIO DE CONTACTO</h1>
+  <div class="contact-form-container">
+    <div class="form-wrapper">
+      <div class="contact-info">
+        <div class="contacto">
+          <p><i class="fas fa-envelope"></i> consulta&#64;correo.com</p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Av. 16 de Julio.Bogota- País
+          </p>
+
+          <p><i class="fas fa-phone"></i> (01) 3453-456</p>
+          <p><i class="fas fa-phone"></i> (01) 3223-452</p>
+        </div>
+        <div class="social-media">
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+
+      <!-- esto es formulario  -->
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit($event)">
+        <h2 class="contac">Contacto</h2>
+
+        <div class="form-row">
+          <div class="input-group">
+            <select id="sexo" formControlName="sexo" required>
+              <option value="" disabled>Sexo *</option>
+              <option value="male">Masculino</option>
+              <option value="female">Femenino</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <input
+              type="date"
+              id="nacimiento"
+              formControlName="nacimiento"
+              required
+              placeholder="Fecha de nacimiento"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group">
+            <input
+              type="text"
+              id="nombre"
+              formControlName="nombre"
+              required
+              placeholder="Nombre *"
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="apellido"
+              formControlName="apellido"
+              required
+              placeholder="Apellido *"
+            />
+          </div>
+        </div>
+
+        <div class="form-row full-width">
+          <div class="input-group">
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              required
+              placeholder="Email *"
+            />
+          </div>
+        </div>
+
+        <div class="form-row full-width">
+          <div class="input-group">
+            <input
+              type="text"
+              id="direccion"
+              formControlName="direccion"
+              required
+              placeholder="Dirección *"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group">
+            <input
+              type="text"
+              id="casa"
+              formControlName="casa"
+              required
+              placeholder="Casa / apartamento *"
+            />
+          </div>
+          <div class="input-group">
+            <select
+              id="pais"
+              formControlName="pais"
+              required
+              (change)="onCountryChange($event)"
+            >
+              <option value="" disabled>País *</option>
+              <option value="colombia">Colombia</option>
+              <option value="mexico">México</option>
+              <option value="argentina">Argentina</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row" *ngIf="showDepartment">
+          <div class="input-group">
+            <select id="departamento" formControlName="departamento">
+              <option value="" disabled>Seleccione un departamento</option>
+              <option
+                *ngFor="let department of departments"
+                [value]="department"
+              >
+                {{ department }}
+              </option>
+            </select>
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="ciudad"
+              formControlName="ciudad"
+              required
+              placeholder="Ciudad *"
+            />
+          </div>
+        </div>
+
+        <div class="form-row full-width">
+          <div class="input-group">
+            <textarea
+              id="comentarios"
+              formControlName="comentarios"
+              rows="4"
+              placeholder="Comentarios"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="form-row full-width">
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- esto para la tabla -->
+<app-tabla [registros]="registros"></app-tabla>
